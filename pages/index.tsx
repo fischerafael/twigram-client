@@ -9,5 +9,3 @@ const Home = () => {
 }
 
 export default Home
-
-// Aula 02
