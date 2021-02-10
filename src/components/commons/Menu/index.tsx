@@ -22,7 +22,9 @@ const Menu = () => {
                 <Button ghost type="button">
                     Entrar
                 </Button>
-                <Button type="button">Cadastrar</Button>
+                <Button kind="tertiary.main" type="button">
+                    Cadastrar
+                </Button>
             </MenuWrapperStyle.Rigth>
         </MenuWrapperStyle>
     )

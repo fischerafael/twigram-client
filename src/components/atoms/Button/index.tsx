@@ -3,21 +3,30 @@ import styled from 'styled-components'
 interface Props {
     type: 'button' | 'submit' | 'reset'
     ghost?: boolean
+    kind?: 'secondary.main' | 'tertiary.main' | 'tertiary.light'
 }
 
-interface StyleProps {
-    ghost?: boolean
-}
+const Button: React.FC<Props> = ({ children, type, ghost, kind }) => {
+    if (ghost)
+        return (
+            <GhostButtonStyle kind={kind} ghost={ghost} type={type}>
+                {children}
+            </GhostButtonStyle>
+        )
 
-const Button: React.FC<Props> = ({ children, type, ghost }) => {
     return (
-        <ButtonStyle ghost={ghost} type={type}>
+        <DefaultButtonStyle kind={kind} ghost={ghost} type={type}>
             {children}
-        </ButtonStyle>
+        </DefaultButtonStyle>
     )
 }
 
 export default Button
+
+interface StyleProps {
+    ghost?: boolean
+    kind?: 'secondary.main' | 'tertiary.main' | 'tertiary.light'
+}
 
 export const ButtonStyle = styled.button<StyleProps>`
     cursor: pointer;
@@ -32,10 +41,40 @@ export const ButtonStyle = styled.button<StyleProps>`
 
     transition: opacity ${({ theme }) => theme.transition};
 
-    background-color: ${(props) => props.ghost && 'transparent'};
-
     &:hover,
     &:focus {
         opacity: 0.5;
     }
+`
+const DefaultButtonStyle = styled(ButtonStyle)`
+    color: ${({ theme }) => `${theme.colors.primary.main.contrastText}`};
+    color: ${({ kind, theme }) =>
+        kind === 'secondary.main' &&
+        `${theme.colors.secondary.main.contrastText}`};
+    color: ${({ kind, theme }) =>
+        kind === 'tertiary.main' &&
+        `${theme.colors.tertiary.main.contrastText}`};
+    color: ${({ kind, theme }) =>
+        kind === 'tertiary.light' &&
+        `${theme.colors.tertiary.light.contrastText}`};
+
+    background-color: ${({ theme }) => `${theme.colors.primary.main.color}`};
+    background-color: ${({ kind, theme }) =>
+        kind === 'secondary.main' && `${theme.colors.secondary.main.color}`};
+    background-color: ${({ kind, theme }) =>
+        kind === 'tertiary.main' && `${theme.colors.tertiary.main.color}`};
+    background-color: ${({ kind, theme }) =>
+        kind === 'tertiary.light' && `${theme.colors.tertiary.light.color}`};
+`
+
+const GhostButtonStyle = styled(ButtonStyle)`
+    color: ${({ theme }) => `${theme.colors.primary.main.color}`};
+    color: ${({ kind, theme }) =>
+        kind === 'secondary.main' && `${theme.colors.secondary.main.color}`};
+    color: ${({ kind, theme }) =>
+        kind === 'tertiary.main' && `${theme.colors.tertiary.main.color}`};
+    color: ${({ kind, theme }) =>
+        kind === 'tertiary.light' && `${theme.colors.tertiary.light.color}`};
+
+    background-color: transparent;
 `

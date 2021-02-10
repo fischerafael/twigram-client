@@ -4,7 +4,7 @@ const colors = {
             color: '#FFFFFF'
         },
         main: {
-            color: '#red'
+            color: '#F2F2F2'
         }
     },
     primary: {
