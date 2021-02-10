@@ -41,5 +41,6 @@ declare module 'styled-components' {
         colors: IColors
         borderRadius: string
         transition: string
+        fontFamily: string
     }
 }
