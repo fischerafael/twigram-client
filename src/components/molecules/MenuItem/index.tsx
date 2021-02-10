@@ -1,3 +1,5 @@
+import styled from 'styled-components'
+
 interface Props {
     url: string
     name: string
@@ -5,10 +7,26 @@ interface Props {
 
 const MenuItem: React.FC<Props> = ({ url, name }) => {
     return (
-        <li key={url}>
+        <ManuItemStyle key={url}>
             <a href={url}>{name}</a>
-        </li>
+        </ManuItemStyle>
     )
 }
 
 export default MenuItem
+
+export const ManuItemStyle = styled.a`
+    text-align: center;
+    display: block;
+
+    text-decoration: none;
+
+    color: #88989e;
+    transition: 200ms ease-in-out;
+
+    &:hover,
+    &:focus {
+        font-weight: 500;
+        color: #070c0e;
+    }
+`
