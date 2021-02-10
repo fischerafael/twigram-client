@@ -9,7 +9,7 @@ const colors = {
     },
     primary: {
         main: {
-            color: '#D7385E',
+            color: '#1DA1F2',
             contrastText: '#fff'
         }
     },
@@ -21,7 +21,7 @@ const colors = {
     },
     tertiary: {
         main: {
-            color: '#070C0E',
+            color: '#333333',
             contrastText: '#fff'
         },
         light: {

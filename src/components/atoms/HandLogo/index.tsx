@@ -1,7 +1,7 @@
-import React from 'react'
+import { HandLogoStyle } from './styles'
 
 const HandLogo = () => {
-    return <img src="/hand-logo.svg" alt="Instwitter" />
+    return <HandLogoStyle src="/hand-logo.svg" alt="Instwitter" />
 }
 
 export default HandLogo
