@@ -36,7 +36,7 @@ const colors = {
 
 export const theme = {
     colors: colors,
-    borderRadius: '12px',
+    borderRadius: '8px',
     transition: '200ms ease-in-out',
     fontFamily: "'Rubik', sans-serif"
 }

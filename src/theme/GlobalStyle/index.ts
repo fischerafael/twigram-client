@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     html, body {
         margin: 0;
         padding: 0;
-        font-family: ${({ theme }) => theme.fontFamily}
+        font-family: ${({ theme }) => theme.fontFamily};
 
         display: flex;
         min-height: 100vh;

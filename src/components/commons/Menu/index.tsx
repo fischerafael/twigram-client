@@ -4,11 +4,14 @@ import Button from '../../atoms/Button'
 import { menuItems } from '../../../data/menu-items'
 
 import { MenuWrapperStyle } from './styles'
+import HandLogo from '../../atoms/HandLogo'
 
 const Menu = () => {
     return (
         <MenuWrapperStyle>
-            <MenuWrapperStyle.Left>logo</MenuWrapperStyle.Left>
+            <MenuWrapperStyle.Left>
+                <HandLogo />
+            </MenuWrapperStyle.Left>
             <MenuWrapperStyle.Center as="ul">
                 {menuItems &&
                     menuItems.map((item: { url: string; name: string }) => (
@@ -23,9 +26,7 @@ const Menu = () => {
                 <Button ghost type="button">
                     Entrar
                 </Button>
-                <Button kind="tertiary.main" type="button">
-                    Cadastrar
-                </Button>
+                <Button type="button">Cadastrar</Button>
             </MenuWrapperStyle.Rigth>
         </MenuWrapperStyle>
     )
