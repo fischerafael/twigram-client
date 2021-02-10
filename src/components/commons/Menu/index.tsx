@@ -1,8 +1,9 @@
 import MenuItem from '../../molecules/MenuItem'
+import Button from '../../atoms/Button'
+
+import { menuItems } from '../../../data/menu-items'
 
 import styled, { StyledComponentBase } from 'styled-components'
-import { menuItems } from '../../../data/menu-items'
-import Button from '../../atoms/Button'
 
 const Menu = () => {
     return (

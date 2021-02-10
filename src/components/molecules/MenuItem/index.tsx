@@ -7,9 +7,11 @@ interface Props {
 
 const MenuItem: React.FC<Props> = ({ url, name }) => {
     return (
-        <ManuItemStyle key={url}>
-            <a href={url}>{name}</a>
-        </ManuItemStyle>
+        <>
+            <ManuItemStyle key={url} href={url}>
+                {name}
+            </ManuItemStyle>
+        </>
     )
 }
 
