@@ -19,7 +19,7 @@ const Menu = () => {
                     ))}
             </MenuWrapperStyle.Center>
             <MenuWrapperStyle.Rigth>
-                <Button variant="sm" ghost type="button">
+                <Button ghost type="button">
                     Entrar
                 </Button>
                 <Button type="button">Cadastrar</Button>

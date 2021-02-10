@@ -3,31 +3,17 @@ import styled from 'styled-components'
 interface Props {
     type: 'button' | 'submit' | 'reset'
     ghost?: boolean
-    variant?: 'sm' | 'tm' | 'tl'
 }
 
-const Button: React.FC<Props> = ({ children, type, ghost, variant }) => {
-    if (ghost)
-        return (
-            <ButtonGhost variant={variant} type={type}>
-                {children}
-            </ButtonGhost>
-        )
+const Button: React.FC<Props> = ({ children, type, ghost }) => {
+    if (ghost) return <ButtonGhost type={type}>{children}</ButtonGhost>
 
-    return (
-        <ButtonDefault variant={variant} type={type}>
-            {children}
-        </ButtonDefault>
-    )
+    return <ButtonDefault type={type}>{children}</ButtonDefault>
 }
 
 export default Button
 
-interface ButtonStyleProps {
-    variant?: 'sm' | 'tm' | 'tl'
-}
-
-export const ButtonStyle = styled.button<ButtonStyleProps>`
+export const ButtonStyle = styled.button`
     cursor: pointer;
 
     border: 0;
@@ -40,8 +26,7 @@ export const ButtonStyle = styled.button<ButtonStyleProps>`
 
     transition: opacity ${({ theme }) => theme.transition};
 
-    color: ${(props) =>
-        props.variant === 'sm' && props.theme.colors.secondary.main.color};
+    background: ${({ theme }) => theme.colors.main};
 
     &:hover,
     &:focus {
