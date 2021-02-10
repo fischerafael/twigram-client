@@ -5,15 +5,21 @@ interface Props {
     ghost?: boolean
 }
 
-const Button: React.FC<Props> = ({ children, type, ghost }) => {
-    if (ghost) return <ButtonGhost type={type}>{children}</ButtonGhost>
+interface StyleProps {
+    ghost?: boolean
+}
 
-    return <ButtonDefault type={type}>{children}</ButtonDefault>
+const Button: React.FC<Props> = ({ children, type, ghost }) => {
+    return (
+        <ButtonStyle ghost={ghost} type={type}>
+            {children}
+        </ButtonStyle>
+    )
 }
 
 export default Button
 
-export const ButtonStyle = styled.button`
+export const ButtonStyle = styled.button<StyleProps>`
     cursor: pointer;
 
     border: 0;
@@ -26,14 +32,10 @@ export const ButtonStyle = styled.button`
 
     transition: opacity ${({ theme }) => theme.transition};
 
-    background: ${({ theme }) => theme.colors.main};
+    background-color: ${(props) => props.ghost && 'transparent'};
 
     &:hover,
     &:focus {
         opacity: 0.5;
     }
-`
-export const ButtonDefault = styled(ButtonStyle)``
-export const ButtonGhost = styled(ButtonStyle)`
-    background-color: transparent;
 `
