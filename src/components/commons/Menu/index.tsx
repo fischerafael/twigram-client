@@ -2,6 +2,7 @@ import MenuItem from '../../molecules/MenuItem'
 
 import styled, { StyledComponentBase } from 'styled-components'
 import { menuItems } from '../../../data/menu-items'
+import Button from '../../atoms/Button'
 
 const Menu = () => {
     return (
@@ -18,8 +19,10 @@ const Menu = () => {
                     ))}
             </MenuWrapperStyle.Center>
             <MenuWrapperStyle.Rigth>
-                <button type="button">Entrar</button>
-                <button type="button">Cadastrar</button>
+                <Button ghost type="button">
+                    Entrar
+                </Button>
+                <Button type="button">Cadastrar</Button>
             </MenuWrapperStyle.Rigth>
         </MenuWrapperStyle>
     )
